@@ -26,9 +26,8 @@ AxiosInstance.interceptors.response.use(
         return response;
     },
     (error) => {
-        console.log(error)
-        if (error.response?.status != 422) {
-            console.error('Unexpected response error:', error);
+        if (error.response.status != 422) {
+            console.error('Unexpected response error: ', error.response.data);
         }
 
         return Promise.reject(error);
